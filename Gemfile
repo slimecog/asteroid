@@ -15,12 +15,19 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'figaro'
 
 group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'capybara'
-  gem "factory_bot_rails"
+  gem 'launchy'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'pry'
+  gem 'active-designer'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
 end
 
 group :development do
