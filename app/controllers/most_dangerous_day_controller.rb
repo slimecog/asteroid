@@ -1,20 +1,17 @@
 class MostDangerousDayController < ApplicationController
   def index
     most_dangerous_day
-    dates_in_range
+    @start_date = (Date.parse(params[:start_date])).to_s
+    @end_date = (Date.parse(params[:end_date])).to_s
   end
 
   private
-    def dates_in_range
-      @start_date = Date.parse(params[:start_date])
-      @end_date = Date.parse(params[:end_date])
-    end
-
     def find_in_range
       (NASAAsteroids.new(params[:start_date], params[:end_date]).neos).flatten
     end
 
     def dangerous_asteroids
+      #should be a reduce method but it was being buggy =(
       find_in_range.map do |asteroid|
         a = []
         if asteroid.dangerous?
