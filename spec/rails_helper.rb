@@ -12,7 +12,7 @@ require 'vcr'
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vsr_cassettes"
   config.hook_into :webmock
-  config.filter_sensitive_data('<PROPUBLICA_API_KEY>') { ENV["propublica_api_key"] }
+  config.filter_sensitive_data('<NASA_API_KEY>') { ENV["nasa_api_key"] }
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
