@@ -7,7 +7,8 @@ class NASAAsteroids
   def neos
     NASAAsteroidSearch.new(start_date, end_date).run[:near_earth_objects].map do |raw_date|
       raw_date.map do |raw_asteroid|
-        Astroid.new(raw_asteroid)
+        require "pry"; binding.pry
+        Asteroid.new(raw_asteroid)
       end
     end
   end
