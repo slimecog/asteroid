@@ -15,9 +15,8 @@ feature "user can see most dangerous day" do
 
       expect(current_path).to eq('/most_dangerous_day')
       expect(page).to have_content('Most Dangerous Day')
-      #ughh i'm having date troubles
-      # expect(page).to have_content('January 1, 2018 - January 7, 2018')
-      # expect(page).to have_content('Most Dangerous Day in Range - January 1, 2018')
+      expect(page).to have_content('January 1, 2018 - January 7, 2018')
+      expect(page).to have_content('Most Dangerous Day in Range - January 1, 2018')
       expect(page).to have_content('Name: (2014 KT76)')
       expect(page).to have_content('NEO Reference ID: 3672906')
       expect(page).to have_content('Name: (2001 LD)')

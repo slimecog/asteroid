@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get "/user", to: "user#show"
-      namespace :user do
-        get "/favorites", to "favorites#show"
 
       namespace :user do
-        resources :favorites, only: [:create, :index]
+        get :favorites, to: 'favorites#index'
+        post :favorites, to: 'favorites#create'
       end
     end
   end

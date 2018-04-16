@@ -14,4 +14,8 @@ class Asteroid
   def dangerous?
     @danger == true
   end
+
+  def formatted_approach_date
+    (Date.new(approach_date[0..3].to_i, approach_date[5..6].to_i, approach_date[8..9].to_i)).strftime("%B %e, %Y")
+  end
 end

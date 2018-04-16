@@ -1,8 +1,7 @@
 class MostDangerousDayController < ApplicationController
   def index
     most_dangerous_day
-    @start_date = (Date.parse(params[:start_date])).to_s
-    @end_date = (Date.parse(params[:end_date])).to_s
+    date_formatter
   end
 
   private
@@ -27,4 +26,10 @@ class MostDangerousDayController < ApplicationController
     def most_dangerous_day
       @asteroids = dates_by_danger.find_all { |asteroid| asteroid.approach_date == dates_by_danger.first.approach_date }
     end
+
+    def date_formatter
+      @start_date = (Date.new(params[:start_date][0..3].to_i, params[:start_date][5..6].to_i, params[:start_date][8..9].to_i)).strftime("%B %e, %Y")
+      @end_date = (Date.new(params[:end_date][0..3].to_i, params[:end_date][5..6].to_i, params[:end_date][8..9].to_i)).strftime("%B %e, %Y")
+    end
+
 end
